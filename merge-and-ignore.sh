@@ -8,18 +8,14 @@ if [ "$#" -lt $MINIMUM_NUMBER_OF_ARGS ]; then
     exit 1;
 fi
 
-# FEATURE_RBANCH=${ARGS[0]}
 ARRAY_OF_FILES=("${ARGS[@]:1:$NUMBER_OF_ARGS}")
 
 # ---------------------------------- Code -------------------------------------
 
-# echo debug: FEATURE_RBANCH is $FEATURE_RBANCH
-
-git merge ${ARGS[0]} --no-commit --no-ff
+git merge ${ARGS[0]} --no-ff --no-commit
 
 for file in "${ARRAY_OF_FILES[@]}";
     do
-        echo debug: filename is $file
         git reset HEAD $file   # Unstaging "array of files"
         git checkout -- $file  # Reverting working-directory of "array of files"
     done
