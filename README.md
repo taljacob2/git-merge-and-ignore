@@ -4,6 +4,7 @@ A small addition for `git merge` to ignore incoming changes to certain local-fil
 
 ## Installation
 
+Run the following command:
 ```
 git config alias.merge-and-ignore '!sh ./merge-and-ignore.sh "${args[@]}"'
 ```
@@ -17,6 +18,8 @@ For example:
 git checkout master
 git merge-and-ignore <FEATURE-BRANCH-NAME> <FILE-1> <FILE-2> <FILE-3>
 ```
+
+## Why Use `git merge-and-ignore`
 
 This feature can be useful for example when you want to preserve your configuration files during `git merge`, such as:
 
