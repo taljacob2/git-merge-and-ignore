@@ -2,6 +2,17 @@
 
 A small addition for `git merge` to ignore incoming changes to certain local-files when merging.
 
+## Why Use `git merge-and-ignore`
+
+This feature can be useful when you want to preserve the current state of some important files during a `git merge` and make sure they won't be changed, such as:
+
+**For example:**
+
+Configuration files:
+- `Web.config`
+- `App.config`
+- `appsettings.json`
+
 ## Installation
 
 ### Clone This Repository As A Subtree In Your Project
@@ -30,11 +41,3 @@ For example:
 git checkout master
 git merge-and-ignore <FEATURE-BRANCH-NAME> <FILE-1> <FILE-2> <FILE-3>
 ```
-
-## Why Use `git merge-and-ignore`
-
-This feature can be useful for example when you want to preserve your configuration files during `git merge`, such as:
-
-- `Web.config`
-- `App.config`
-- `appsettings.json`
