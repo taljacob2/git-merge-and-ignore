@@ -16,8 +16,8 @@ git merge ${ARGS[0]} --no-ff --no-commit
 
 for file in "${ARRAY_OF_FILES[@]}";
     do
-        git reset HEAD $file   # Unstaging "array of files"
-        git checkout -- $file  # Reverting working-directory of "array of files"
+        git reset HEAD $file > /dev/null 2>&1   # Unstaging "array of files"
+        git checkout -- $file > /dev/null 2>&1  # Reverting working-directory of "array of files"
     done
 
 git merge --continue
