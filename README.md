@@ -1,6 +1,6 @@
 # git-merge-and-ignore
 
-> V1.0.0
+> V1.0.1
 
 A small addition for `git merge` to ignore *incoming changes* to certain ***local*** files / folders when merging.
 
@@ -48,8 +48,5 @@ git merge-and-ignore <FEATURE-BRANCH-NAME> <FILE-1> <FILE-2> <FOLDER-1> <FOLDER-
 In case you already have an existing version of "git-merge-and-ignore" and you want to update to the newest version available,
 you can merge the newest version of this repository to your existing `git-merge-and-ignore` folder:
 ```
-git checkout master
-git remote add -f git-merge-and-ignore https://github.com/taljacob2/git-merge-and-ignore
-git subtree merge -P git-merge-and-ignore git-merge-and-ignore/master --squash
-git remote remove git-merge-and-ignore
+git subtree pull -P git-merge-and-ignore https://github.com/taljacob2/git-merge-and-ignore master --squash
 ```
