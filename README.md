@@ -4,9 +4,21 @@ A small addition for `git merge` to ignore incoming changes to certain local-fil
 
 ## Installation
 
+### Clone This Repository As A Subtree In Your Project
+
+Merge this repository to a folder called `git-merge-and-ignore` at the root folder of your project:
+```
+git checkout master
+git remote add -f git-merge-and-ignore https://github.com/taljacob2/git-merge-and-ignore
+git subtree add -P git-merge-and-ignore git-merge-and-ignore/master --squash
+git remote remove git-merge-and-ignore
+```
+
+### Configure The Alias Of `git merge-and-ignore`
+
 Run the following command:
 ```
-git config alias.merge-and-ignore '!sh ./merge-and-ignore.sh "${args[@]}"'
+git config alias.merge-and-ignore '!sh ./git-merge-and-ignore/merge-and-ignore.sh "${args[@]}"'
 ```
 
 ## How To Use
