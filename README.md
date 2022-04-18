@@ -1,10 +1,12 @@
 # git-merge-and-ignore
 
-A small addition for `git merge` to ignore incoming changes to certain local-files when merging.
+A small addition for `git merge` to ignore *incoming changes* to certain ***local*** files / folders when merging.
+
+> NOTE: `git merge-and-ignore` accepts *git wildcards*.
 
 ## Why Use `git merge-and-ignore`
 
-This feature can be useful when you want to preserve the current state of some important files during a `git merge` and make sure they won't be changed, such as:
+This feature can be useful when you want to preserve the current state of some important files / folders during a `git merge` and make sure they won't be changed, such as:
 
 **For example:**
 
@@ -34,7 +36,7 @@ git config alias.merge-and-ignore '!sh ./git-merge-and-ignore/merge-and-ignore.s
 
 ## How To Use
 
-You can now `git merge` and ignore incoming changes for files you wish to preserver theirs state, you can do this for as many files as you want:
+You can now `git merge` and ignore incoming changes for files / folders you wish to preserver theirs state, you can do this for as many files as you want:
 
 For example:
 ```
