@@ -6,8 +6,6 @@ A small addition for `git merge` to ignore *incoming changes* to certain ***loca
 
 Keep in mind that "git-merge-and-ignore" is **different** than `.gitattributes`, because the latter only gets triggered when there are *conflicts* while merging, so the `merge=ours` or `merge=keepMine` strategies unfortunately **do not** help you "ignoring" incoming changes for files when it happen that you **do not have *conflicts* when merging** them.
 
-> NOTE: `git merge-and-ignore` accepts *git wildcards*.
-
 ## Why Use `git merge-and-ignore`
 
 This feature can be useful when you want to preserve the current state of some important files / folders during a `git merge` and make sure they won't be changed, such as:
@@ -38,6 +36,8 @@ git config alias.merge-and-ignore '!sh ./git-merge-and-ignore/merge-and-ignore.s
 ## How To Use
 
 You can now `git merge` and ignore incoming changes for files / folders you wish to preserve theirs state, you can do this for as many files as you want:
+
+> NOTE: `git merge-and-ignore` accepts *git wildcards*.
 
 For example:
 ```
