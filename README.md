@@ -21,12 +21,9 @@ Configuration files:
 
 ### Clone This Repository As A Subtree In Your Project
 
-Merge this repository to a folder called `git-merge-and-ignore` at the root folder of your project:
+Merge this repository to a new folder called `git-merge-and-ignore` at the root folder of your project:
 ```
-git checkout master
-git remote add -f git-merge-and-ignore https://github.com/taljacob2/git-merge-and-ignore
-git subtree add -P git-merge-and-ignore git-merge-and-ignore/master --squash
-git remote remove git-merge-and-ignore
+git subtree add -P git-merge-and-ignore https://github.com/taljacob2/git-merge-and-ignore master --squash
 ```
 
 ### Configure The Alias Of `git merge-and-ignore`
