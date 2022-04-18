@@ -1,5 +1,7 @@
 # git-merge-and-ignore
 
+> V1.0.0
+
 A small addition for `git merge` to ignore *incoming changes* to certain ***local*** files / folders when merging.
 
 > NOTE: `git merge-and-ignore` accepts *git wildcards*.
