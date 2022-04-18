@@ -4,6 +4,8 @@
 
 A small addition for `git merge` to ignore *incoming changes* to certain ***local*** files / folders when merging.
 
+Keep in mind that "git-merge-and-ignore" is **different** than `.gitattributes`, because the latter only gets triggered when there are *conflicts* while merging, so the `merge=ours` or `merge=keepMine` strategies unfortunately **do not** help you "ignoring" incoming changes for files when it happen that you **do not have *conflicts* when merging** them.
+
 > NOTE: `git merge-and-ignore` accepts *git wildcards*.
 
 ## Why Use `git merge-and-ignore`
