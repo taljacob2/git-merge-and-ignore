@@ -1,4 +1,4 @@
-# merge-and-ignore
+# git-merge-and-ignore
 
 A small addition for `git merge` to ignore incoming changes to certain local-files when merging.
 
