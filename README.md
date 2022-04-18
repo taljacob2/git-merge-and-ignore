@@ -41,3 +41,14 @@ For example:
 git checkout master
 git merge-and-ignore <FEATURE-BRANCH-NAME> <FILE-1> <FILE-2> <FILE-3>
 ```
+
+## Check For Updates
+
+In case you already have an existing version of "git-merge-and-ignore" and you want to update to the newest version available,
+you can merge the newest version of this repository to your existing `git-merge-and-ignore` folder:
+```
+git checkout master
+git remote add -f git-merge-and-ignore https://github.com/taljacob2/git-merge-and-ignore
+git subtree merge -P git-merge-and-ignore git-merge-and-ignore/master --squash
+git remote remove git-merge-and-ignore
+```
