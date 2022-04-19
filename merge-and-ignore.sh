@@ -13,14 +13,14 @@ if [ $NUMBER_OF_ARGS -lt $MINIMUM_NUMBER_OF_ARGS ]; then
     exit 1;    
 fi
 
-# Extract wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`
+# Extract wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`.
 MERGE_AND_IGNORE_FILE_NAME_TO_READ=.gitmergeandignore.sh
 WILDCARDS_TO_IGNORE_FROM_FILE=()
 if [ -e $MERGE_AND_IGNORE_FILE_NAME_TO_READ ]; then
     WILDCARDS_TO_IGNORE_FROM_FILE=$(readFile $MERGE_AND_IGNORE_FILE_NAME_TO_READ)
 fi
 
-# Extract wildcards from `ARGS`
+# Extract wildcards from `ARGS`.
 WILDCARDS_TO_IGNORE_FROM_ARGS=("${ARGS[@]:1:$NUMBER_OF_ARGS}")
 
 # Combine both wildcard arrays to a single array.
@@ -35,8 +35,8 @@ git merge ${ARGS[0]} --no-ff --no-commit
 for wildcardToIgnore in $ALL_WILDCARDS_TO_IGNORE; do
     echo $LOG_TITLE Ignoring \"$wildcardToIgnore\"  # Output logs.
 
-    git reset HEAD $wildcardToIgnore > /dev/null 2>&1   # Unstaging "array of files"
-    git checkout -- $wildcardToIgnore > /dev/null 2>&1  # Reverting working-directory of "array of files"
+    git reset HEAD $wildcardToIgnore > /dev/null 2>&1   # Unstaging the current wildcard.
+    git checkout -- $wildcardToIgnore > /dev/null 2>&1  # Reverting working-directory of the current wildcard.
 done
 
 # DEVELOPER NOTE: Choose one of the following options:
