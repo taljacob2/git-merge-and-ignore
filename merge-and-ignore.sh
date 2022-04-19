@@ -13,6 +13,12 @@ if [ $NUMBER_OF_ARGS -lt $MINIMUM_NUMBER_OF_ARGS ]; then
     exit 1;    
 fi
 
+# Check for `--no-read` inline parameter
+delete=--no-read
+echo DEBUG: DELETING: ${array[@]/$delete}  # Debug.
+ARGS=( "${ARGS[@]/$delete}" )  # Quotes when working with strings.
+NUMBER_OF_ARGS=${#ARGS[@]}
+
 # Extract wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`.
 MERGE_AND_IGNORE_FILE_NAME_TO_READ=.gitmergeandignore.sh
 WILDCARDS_TO_IGNORE_FROM_FILE=()
