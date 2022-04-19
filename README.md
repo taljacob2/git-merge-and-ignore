@@ -38,38 +38,40 @@ git config alias.merge-and-ignore '!sh ./git-merge-and-ignore/merge-and-ignore.s
 - You can now `git merge` and ignore incoming changes for files / folders you wish to preserve theirs state, you can do this for as many files as you want.
 - "git-merge-and-ignore" accepts all *git wildcards*.
 
-### Via A Pre-Made `.gitmergeandignore.sh` File
+Choose one of the following options:
 
-Create a file named `.gitmergeandignore.sh` in your project's **root folder**, and state there line-by-line your *wildcards* to ignore. (Same as [`.gitignore`](https://git-scm.com/docs/gitignore)).
-"git-merge-and-ignore" will read the *wildcards* you have stated there.
+- ### Via A Pre-Made `.gitmergeandignore.sh` File
 
-After you have configured `.gitmergeandignore.sh`, you can run for example:
-```
-git checkout master
-git merge-and-ignore <FEATURE-BRANCH-NAME>
-```
+    Create a file named `.gitmergeandignore.sh` in your project's **root folder**, and state there line-by-line your *wildcards* to ignore. (Same as [`.gitignore`](https://git-scm.com/docs/gitignore)).
+    "git-merge-and-ignore" will read the *wildcards* you have stated there.
 
-> ADVANCED SETTINGS: You are able to customise the name of `.gitmergeandignore.sh` by changing the value of `MERGE_AND_IGNORE_FILE_NAME_TO_READ` to your desired file name, in [merge-and-ignore.sh](merge-and-ignore.sh).
+    After you have configured `.gitmergeandignore.sh`, you can run for example:
+    ```
+    git checkout master
+    git merge-and-ignore <FEATURE-BRANCH-NAME>
+    ```
 
-### Via An Inline-Command
+    > ADVANCED SETTINGS: You are able to customise the name of `.gitmergeandignore.sh` by changing the value of `MERGE_AND_IGNORE_FILE_NAME_TO_READ` to your desired file name, in [merge-and-ignore.sh](merge-and-ignore.sh).
 
-For example:
-```
-git checkout master
-git merge-and-ignore <FEATURE-BRANCH-NAME> <WILDCARD-1> <WILDCARD-2>
-```
+- ### Via An Inline-Command
 
-#### NOTE
+    For example:
+    ```
+    git checkout master
+    git merge-and-ignore <FEATURE-BRANCH-NAME> <WILDCARD-1> <WILDCARD-2>
+    ```
 
-By default, "git-merge-and-ignore" always looks for the `.gitmergeandignore.sh` file to read from.
-So the final result will be a combination of both the *wildcards* stated in `.gitmergeandignore.sh` **and** in the *inline-command*.
+    #### NOTE
 
-You can disable "git-merge-and-ignore" from reading the *wildcards* stated in `.gitmergeandignore.sh`, for a *single inline-command* by stating the `--no-read` inline parameter.
-For example:
-```
-git checkout master
-git merge-and-ignore --no-read <FEATURE-BRANCH-NAME> <WILDCARD-1> <WILDCARD-2>
-```
+    By default, "git-merge-and-ignore" always looks for the `.gitmergeandignore.sh` file to read from.
+    So the final result will be a combination of both the *wildcards* stated in `.gitmergeandignore.sh` **and** in the *inline-command*.
+
+    You can disable "git-merge-and-ignore" from reading the *wildcards* stated in `.gitmergeandignore.sh`, for a *single inline-command* by stating the `--no-read` inline parameter.
+    For example:
+    ```
+    git checkout master
+    git merge-and-ignore --no-read <FEATURE-BRANCH-NAME> <WILDCARD-1> <WILDCARD-2>
+    ```
 
 ## Check For Updates
 
