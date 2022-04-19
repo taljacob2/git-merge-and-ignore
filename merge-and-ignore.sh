@@ -92,6 +92,8 @@ if [[ $HAS_MERGE_STARTED = 0 ]]; then
     # DEVELOPER NOTE: Choose one of the following options:
     GIT_EDITOR=true git merge --continue  # DEVELOPER NOTE: Enable this line to enable `--no-edit`.
     # git merge --continue  # DEVELOPER NOTE: Enable this line to disable `--no-edit`.
+else
+    echo $HAS_MERGE_STARTED
 fi
 
 exit
