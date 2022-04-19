@@ -13,16 +13,40 @@ if [ $NUMBER_OF_ARGS -lt $MINIMUM_NUMBER_OF_ARGS ]; then
     exit 1;    
 fi
 
-# Check for `--no-read` inline parameter
-delete="--no-read"
-# echo DEBUG: DELETING: ${ARGS[@]/$delete}  # Debug.
-# ARGS=( "${ARGS[@]/$delete}" )  # Quotes when working with strings.
-# NUMBER_OF_ARGS=${#ARGS[@]}
+IS_NO_READ=false  # Default. 
+# Check if parameters options are given on the command line:
+while :
+do
+    case "$1" in
+      -n | --no-read)
+          IS_NO_READ=true
+          shift 2
+          ;;
+      -h | --help)
+          display_help  # Call your function
+          exit 0
+          ;;
+      --) # End of all options
+          shift
+          break
+          ;;
+      -*)
+          echo "Error: Unknown option: $1" >&2
+          ## or call function display_help
+          exit 1 
+          ;;
+      *)  # No more options
+          break
+          ;;
+    esac
+done
+ARGS=("$@")
+NUMBER_OF_ARGS=${#ARGS[@]}
 
 # Extract wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`.
 MERGE_AND_IGNORE_FILE_NAME_TO_READ=.gitmergeandignore.sh
 WILDCARDS_TO_IGNORE_FROM_FILE=()
-if [ -e $MERGE_AND_IGNORE_FILE_NAME_TO_READ ]; then
+if [ -e $MERGE_AND_IGNORE_FILE_NAME_TO_READ && !$IS_NO_READ]; then
     WILDCARDS_TO_IGNORE_FROM_FILE=$(readFile $MERGE_AND_IGNORE_FILE_NAME_TO_READ)
 fi
 
