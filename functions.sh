@@ -1,3 +1,5 @@
+#!/bin/bash
+
 : '
 Description:
 Reads a file line-by-line to and returns it as an array of strings.

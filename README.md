@@ -68,12 +68,19 @@ Choose one of the following options:
     By default, "git-merge-and-ignore" always looks for the `.gitmergeandignore.sh` file to read from.
     So the final result will be a combination of both the *wildcards* stated in `.gitmergeandignore.sh` **and** in the *inline-command*.
 
-    You can disable "git-merge-and-ignore" from reading the *wildcards* stated in `.gitmergeandignore.sh`, for a *single inline-command* by stating the `--no-read` inline parameter.
+    You can disable "git-merge-and-ignore" from reading the *wildcards* stated in `.gitmergeandignore.sh`, for a *single inline-command* by stating the `--no-read` option (or `-n` for shortcut).
     For example:
     ```
     git checkout master
     git merge-and-ignore --no-read <FEATURE-BRANCH-NAME> <WILDCARD-1> <WILDCARD-2>
     ```
+
+## More Help
+
+To view the docs of "git merge-and-ignore", you can state the `--help` option (or `-h` for shortcut):
+```
+git merge-and-ignore --help
+```
 
 ## Check For Updates
 
