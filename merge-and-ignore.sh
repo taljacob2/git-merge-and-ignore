@@ -77,7 +77,7 @@ LOG_HALF_BOUNDARY="#$LOG_HALF_BOUNDARY_SHORT"
 
 echo $LOG_HALF_BOUNDARY_SHORT START MERGE-AND-IGNORE $LOG_HALF_BOUNDARY
 
-HAS_MERGE_STARTED=$(git merge ${ARGS[0]} --no-ff --no-commit > /dev/null 2>&1)
+HAS_MERGE_STARTED=$(git merge ${ARGS[0]} --no-ff --no-commit)
 
 for wildcardToIgnore in $ALL_WILDCARDS_TO_IGNORE; do
     echo Ignoring \"$wildcardToIgnore\"  # Output logs.
