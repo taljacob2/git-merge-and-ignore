@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source git-merge-and-ignore/functions.sh
+source functions.sh
 
 # ---------------------------------- Code -------------------------------------
 
