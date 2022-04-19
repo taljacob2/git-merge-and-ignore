@@ -1,5 +1,2 @@
 #### Hello123
-This
-Is
-My
-File
+merge-and-ignore.sh

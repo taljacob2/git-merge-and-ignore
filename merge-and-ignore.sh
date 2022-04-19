@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source functions.sh
+source ./functions.sh
 
 # --------------------------------- Setup -------------------------------------
 
