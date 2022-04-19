@@ -29,6 +29,10 @@ ALL_WILDCARDS_TO_IGNORE=(${WILDCARDS_TO_IGNORE_FROM_FILE[@]} ${WILDCARDS_TO_IGNO
 # ---------------------------------- Code -------------------------------------
 
 LOG_TITLE="### merge-and-ignore.sh ###: "
+LOG_HALF_BOUNDARY_SHORT="###########################"
+LOG_HALF_BOUNDARY="#$LOG_HALF_BOUNDARY_SHORT"
+
+echo $LOG_HALF_BOUNDARY_SHORT START MERGE-AND-IGNORE $LOG_HALF_BOUNDARY
 
 git merge ${ARGS[0]} --no-ff --no-commit
 
@@ -42,5 +46,7 @@ done
 # DEVELOPER NOTE: Choose one of the following options:
 GIT_EDITOR=true git merge --continue  # DEVELOPER NOTE: Enable this line to enable `--no-edit`.
 # git merge --continue  # DEVELOPER NOTE: Enable this line to disable `--no-edit`.
+
+echo $LOG_HALF_BOUNDARY_SHORT FINISH MERGE-AND-IGNORE $LOG_HALF_BOUNDARY_SHORT
 
 exit
