@@ -2,6 +2,16 @@
 
 source ./functions.sh
 
+MERGE_AND_IGNORE_FILE_NAME_TO_READ=.gitmergeandignore.sh
+display_help() {
+    echo "Usage: $0 [option...] {branch-to-merge} [wildcards-to-ignore...]" >&2
+    echo
+    echo "   -h, --help         Display this help message."
+    echo "   -n, --no-read      Disable the read of wildcards from \"$MERGE_AND_IGNORE_FILE_NAME_TO_READ\"."
+    echo
+    exit 0
+}
+
 # --------------------------------- Setup -------------------------------------
 
 # Assert the given amount of `ARGS` is legal.
@@ -13,7 +23,8 @@ if [ $NUMBER_OF_ARGS -lt $MINIMUM_NUMBER_OF_ARGS ]; then
     exit 1;    
 fi
 
-IS_NO_READ=false  # Default. 
+IS_NO_READ=false  # Default state is to enable read of wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`.
+
 # Check if parameters options are given on the command line:
 while :
 do
@@ -43,10 +54,12 @@ done
 ARGS=("$@")
 NUMBER_OF_ARGS=${#ARGS[@]}
 
+echo DEBUG: IS_NO_READ = $IS_NO_READ
+
 # Extract wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`.
 MERGE_AND_IGNORE_FILE_NAME_TO_READ=.gitmergeandignore.sh
 WILDCARDS_TO_IGNORE_FROM_FILE=()
-if [ -e $MERGE_AND_IGNORE_FILE_NAME_TO_READ && !$IS_NO_READ]; then
+if [ -e $MERGE_AND_IGNORE_FILE_NAME_TO_READ && !$IS_NO_READ ]; then
     WILDCARDS_TO_IGNORE_FROM_FILE=$(readFile $MERGE_AND_IGNORE_FILE_NAME_TO_READ)
 fi
 
