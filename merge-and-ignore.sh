@@ -31,7 +31,7 @@ do
     case "$1" in
       -n | --no-read)
           IS_NO_READ=true
-          shift 2
+          shift 1
           ;;
       -h | --help)
           display_help  # Call your function
