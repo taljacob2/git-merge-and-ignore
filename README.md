@@ -35,7 +35,7 @@ git config alias.merge-and-ignore '!sh ./git-merge-and-ignore/merge-and-ignore.s
 
 ## How To Use
 
-- You can now `git merge` and ignore incoming changes for files / folders you wish to preserve theirs state, you can do this for as many files as you want.
+- You can now `git merge` and ignore incoming changes for files / folders you wish to preserve their state, you can do this for as many files as you want.
 - "git-merge-and-ignore" accepts all *git wildcards*.
 
 Choose one of the following options:
