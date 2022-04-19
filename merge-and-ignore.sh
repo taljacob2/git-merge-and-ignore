@@ -77,7 +77,8 @@ LOG_HALF_BOUNDARY="#$LOG_HALF_BOUNDARY_SHORT"
 
 echo $LOG_HALF_BOUNDARY_SHORT START MERGE-AND-IGNORE $LOG_HALF_BOUNDARY
 
-HAS_MERGE_STARTED=$(git merge ${ARGS[0]} --no-ff --no-commit)
+HAS_MERGE_STARTED_MESSAGE=$(git merge ${ARGS[0]} --no-ff --no-commit > /dev/null 2>&1)
+HAS_MERGE_STARTED_EXIT_CODE=$?
 
 for wildcardToIgnore in $ALL_WILDCARDS_TO_IGNORE; do
     echo Ignoring \"$wildcardToIgnore\"  # Output logs.
@@ -88,12 +89,12 @@ done
 
 echo $LOG_HALF_BOUNDARY_SHORT FINISH MERGE-AND-IGNORE $LOG_HALF_BOUNDARY_SHORT
 
-if [[ $HAS_MERGE_STARTED = 0 ]]; then
+if [[ $HAS_MERGE_STARTED_EXIT_CODE = 0 ]]; then
     # DEVELOPER NOTE: Choose one of the following options:
     GIT_EDITOR=true git merge --continue  # DEVELOPER NOTE: Enable this line to enable `--no-edit`.
     # git merge --continue  # DEVELOPER NOTE: Enable this line to disable `--no-edit`.
 else
-    echo $HAS_MERGE_STARTED
+    echo $HAS_MERGE_STARTED_MESSAGE
 fi
 
 exit
