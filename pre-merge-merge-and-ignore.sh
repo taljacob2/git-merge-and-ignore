@@ -18,12 +18,13 @@ done
 readFile(){
     local lineList=()
     while IFS= read -r line || [[ -n "$line" ]]; do
+        [ "${line:0:1}" = "#" ] && continue  # Skip all lines that begin with '#'
         lineList+=("$line")
     done < "$1"
     echo "${lineList[@]}"
 }
 
-file=$(readFile .gitmergeandignore)
-for e in $file; do
-    echo $e
+file=$(readFile .gitmergeandignore.sh)
+for line in $file; do
+    echo $line
 done
