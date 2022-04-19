@@ -39,7 +39,8 @@ for wildcardToIgnore in $ALL_WILDCARDS_TO_IGNORE; do
     git checkout -- $wildcardToIgnore > /dev/null 2>&1  # Reverting working-directory of "array of files"
 done
 
-GIT_EDITOR=true  # Enable this line to enable `--no-edit`.
-git merge --continue
+# DEVELOPER NOTE: Choose one of the following options:
+GIT_EDITOR=true git merge --continue  # DEVELOPER NOTE: Enable this line to enable `--no-edit`.
+# git merge --continue  # DEVELOPER NOTE: Enable this line to disable `--no-edit`.
 
 exit
