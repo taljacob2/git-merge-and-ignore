@@ -33,12 +33,13 @@ LOG_TITLE="### merge-and-ignore.sh ###: "
 git merge ${ARGS[0]} --no-ff --no-commit
 
 for wildcardToIgnore in $ALL_WILDCARDS_TO_IGNORE; do
-    echo $LOG_TITLE Ignoring $wildcardToIgnore  # Output logs.
+    echo $LOG_TITLE Ignoring "$wildcardToIgnore"  # Output logs.
 
     git reset HEAD $wildcardToIgnore > /dev/null 2>&1   # Unstaging "array of files"
     git checkout -- $wildcardToIgnore > /dev/null 2>&1  # Reverting working-directory of "array of files"
 done
 
-git merge --continue --no-edit
+GIT_EDITOR=true  # Enable this line to enable `--no-edit`.
+git merge --continue
 
 exit
