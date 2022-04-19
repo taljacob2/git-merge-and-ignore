@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ./functions.sh
+source ./git-merge-and-ignore/functions.sh
 
 MERGE_AND_IGNORE_FILE_NAME_TO_READ=.gitmergeandignore.sh
 display_help() {
