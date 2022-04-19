@@ -51,7 +51,9 @@ Choose one of the following options:
     git merge-and-ignore <FEATURE-BRANCH-NAME>
     ```
 
-    > ADVANCED SETTINGS: You are able to customise the name of `.gitmergeandignore.sh` by changing the value of `MERGE_AND_IGNORE_FILE_NAME_TO_READ` to your desired file name, in [merge-and-ignore.sh](merge-and-ignore.sh).
+    > **ADVANCED SETTINGS:**
+    >
+    > You are able to customise the name of `.gitmergeandignore.sh` by changing the value of `MERGE_AND_IGNORE_FILE_NAME_TO_READ` to your desired file name, in [merge-and-ignore.sh](merge-and-ignore.sh).
 
 - ### Via An Inline-Command
 
