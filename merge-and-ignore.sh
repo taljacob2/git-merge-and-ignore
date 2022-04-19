@@ -54,8 +54,6 @@ done
 ARGS=("$@")
 NUMBER_OF_ARGS=${#ARGS[@]}
 
-echo DEBUG: IS_NO_READ = $IS_NO_READ
-
 # Extract wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`.
 MERGE_AND_IGNORE_FILE_NAME_TO_READ=.gitmergeandignore.sh
 WILDCARDS_TO_IGNORE_FROM_FILE=()
@@ -79,8 +77,6 @@ echo $LOG_HALF_BOUNDARY_SHORT START MERGE-AND-IGNORE $LOG_HALF_BOUNDARY
 
 HAS_MERGE_STARTED_MESSAGE=$(git merge ${ARGS[0]} --no-ff --no-commit)
 HAS_MERGE_STARTED_EXIT_CODE=$?
-
-echo DEBUG: HAS_MERGE_STARTED_EXIT_CODE: $HAS_MERGE_STARTED_EXIT_CODE
 
 for wildcardToIgnore in $ALL_WILDCARDS_TO_IGNORE; do
     echo Ignoring \"$wildcardToIgnore\"  # Output logs.
