@@ -88,7 +88,7 @@ done
 
 echo $LOG_HALF_BOUNDARY_SHORT FINISH MERGE-AND-IGNORE $LOG_HALF_BOUNDARY_SHORT
 
-if [[$HAS_MERGE_STARTED -e 0]]; then
+if [[ $HAS_MERGE_STARTED -e 0 ]]; then
     # DEVELOPER NOTE: Choose one of the following options:
     GIT_EDITOR=true git merge --continue  # DEVELOPER NOTE: Enable this line to enable `--no-edit`.
     # git merge --continue  # DEVELOPER NOTE: Enable this line to disable `--no-edit`.
