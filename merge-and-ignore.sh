@@ -23,7 +23,8 @@ if [ $NUMBER_OF_ARGS -lt $MINIMUM_NUMBER_OF_ARGS ]; then
     exit 1;    
 fi
 
-IS_NO_READ=false  # Default state is to enable read of wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`.
+# Default state is to enable read of wildcards from `MERGE_AND_IGNORE_FILE_NAME_TO_READ`.
+IS_NO_READ=false
 
 # Check if parameters options are given on the command line:
 while :
@@ -34,7 +35,7 @@ do
           shift 1
           ;;
       -h | --help)
-          display_help  # Call your function
+          display_help
           exit 0
           ;;
       --) # End of all options
@@ -43,7 +44,7 @@ do
           ;;
       -*)
           echo "Error: Unknown option: $1" >&2
-          ## or call function display_help
+          # Or call function `display_help`
           exit 1 
           ;;
       *)  # No more options
