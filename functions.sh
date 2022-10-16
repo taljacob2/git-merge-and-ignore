@@ -26,12 +26,17 @@ readFile(){
 
 : '
 Description:
-Resolves a conflicted file with a certain strategy: ours|theirs|union
+Resolves a conflicted file with a certain strategy: `--ours|--theirs|--union`.
 
 Parameters:
-$1: STRATEGY: Pick a strategy between `ours|theirs|union` to resolve the file
-              with.
+$1: STRATEGY: Pick a strategy between `--ours|--theirs|--union` to resolve the
+              file with.
 $2: FILE_PATH: The path to the conflicted file to resolve.
+
+Example Of Use:
+```
+resolveConflictedFile --union README.md
+```
 '
 resolveConflictedFile() {
   STRATEGY="$1"
